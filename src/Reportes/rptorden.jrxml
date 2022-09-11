@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptorden" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a5dc7081-ed95-40c0-be20-3abdea202d8e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     llegada.`idllegada` AS llegada_idllegada,
+     llegada.`fechallega` AS llegada_fechallega,
+     llegada.`ordenllegada` AS llegada_ordenllegada,
+     llegada.`idModelo` AS llegada_idModelo,
+     llegada.`idClientes` AS llegada_idClientes,
+     llegada.`idmecanico` AS llegada_idmecanico
+FROM
+     `llegada` llegada]]>
+	</queryString>
+	<field name="llegada_idllegada" class="java.lang.Integer"/>
+	<field name="llegada_fechallega" class="java.sql.Date"/>
+	<field name="llegada_ordenllegada" class="java.lang.String"/>
+	<field name="llegada_idModelo" class="java.lang.Integer"/>
+	<field name="llegada_idClientes" class="java.lang.Integer"/>
+	<field name="llegada_idmecanico" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="4629fb8d-cfe3-427d-8b1e-f0348d7c51eb"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="6d297a19-b3ff-40d8-8f1e-3dcf648ffb5f"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Moto Taller]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="cc51a7de-d994-4ba9-a7cc-37b8b11bd0dc"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Una nueva vida]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="53"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="56">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="f99b1f5c-0209-4341-90aa-5848daba8987"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="21" width="100" height="20" uuid="fbb180d0-bc4c-4d2e-8139-c859914c178f"/>
+				<text><![CDATA[llegada_idClientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="21" width="100" height="20" uuid="4c4aaacf-d6d2-4e83-876d-168d1c19208d"/>
+				<text><![CDATA[llegada_idmecanico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="21" width="100" height="20" uuid="017ea392-51dc-437a-94d9-e69fd182f331"/>
+				<text><![CDATA[llegada_idModelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="21" width="100" height="20" uuid="39f8c725-5666-4bb2-b25b-f1b91034a137"/>
+				<text><![CDATA[llegada_ordenllegada]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="69">
+			<textField>
+				<reportElement x="11" y="15" width="100" height="20" uuid="567e2d93-6713-4491-b6fb-83bba114de48"/>
+				<textFieldExpression><![CDATA[$F{llegada_idClientes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="15" width="100" height="20" uuid="a3193f9b-da24-4e8b-83cf-f02ca50e1548"/>
+				<textFieldExpression><![CDATA[$F{llegada_idmecanico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="15" width="100" height="20" uuid="52e52406-907c-4218-bc3e-20b1fcf4e06e"/>
+				<textFieldExpression><![CDATA[$F{llegada_idModelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="15" width="100" height="20" uuid="3034a390-928c-4942-81bb-008635a24c41"/>
+				<textFieldExpression><![CDATA[$F{llegada_ordenllegada}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="83da39d1-79b5-424a-9d88-4628809a47c1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="0af21f3c-cf86-45d5-8e97-7231c859e1a1"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="35842a78-9eb4-4765-89a2-57f071e1b136"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
